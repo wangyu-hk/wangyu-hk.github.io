@@ -1,21 +1,31 @@
-<div class="publication-entry" style="margin-bottom: 1.5em;">
+<div class="publication-entry"
+     style="display: flex; gap: 12px; margin-bottom: 1.5em;">
 
-  <div style="line-height: 1.65;">
-    {{ post.citation }}
+  <div style="flex: 0 0 28px;
+              font-weight: bold;
+              line-height: 1.65;">
+    {{ include.number }}.
   </div>
 
-  {% if post.paperurl %}
-    <div style="margin-top: 0.25em;">
-      <a href="{{ post.paperurl }}"
-         target="_blank"
-         rel="noopener noreferrer">
-        {% if page.lang == "zh" %}
-          查看论文
-        {% else %}
-          Read More
-        {% endif %}
-      </a>
-    </div>
-  {% endif %}
+  <div style="flex: 1; min-width: 0;">
 
+    <div style="line-height: 1.65;">
+      {{ post.citation }}
+    </div>
+
+    {% if post.paperurl %}
+      <div style="margin-top: 0.25em;">
+        <a href="{{ post.paperurl }}"
+           target="_blank"
+           rel="noopener noreferrer">
+          {% if page.lang == "zh" %}
+            查看论文
+          {% else %}
+            Read More
+          {% endif %}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
 </div>
