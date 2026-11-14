@@ -1,3 +1,5 @@
+lang: en
+alt_url: /zh/
 ---
 permalink: /
 title: "About Me"
