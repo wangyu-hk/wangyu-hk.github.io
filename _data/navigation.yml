@@ -15,10 +15,10 @@ main:
     url: /teaching/    
     
   - title: "Service"
-    url: /portfolio/
+    url: /service/
         
   - title: "Blog"
-    url: /year-archive/
+    url: /blog/
     
   - title: "CV"
     url: /cv/
@@ -29,8 +29,8 @@ zh:
   - title: "教学经历"
     url: /zh/teaching/
   - title: "社会服务"
-    url: /zh/portfolio/
+    url: /zh/service/
   - title: "博客"
-    url: /zh/year-archive/
+    url: /zh/blog/
   - title: "个人简历"
     url: /zh/cv/
