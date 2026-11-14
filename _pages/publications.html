@@ -15,22 +15,29 @@ alt_url: /zh/publications/
   </a>.
 </p>
 
+
 {% assign sorted_papers = site.publications | sort: "date" | reverse %}
 
-<h2>Journal Articles</h2>
-
-{% for post in sorted_papers %}
-  {% if post.category == "manuscripts" %}
-    {% include publication-compact.html %}
-  {% endif %}
-{% endfor %}
-
+{% assign journal_papers = sorted_papers | where: "category", "manuscripts" %}
 {% assign conference_papers = sorted_papers | where: "category", "conferences" %}
+
+{% assign publication_number = journal_papers.size | plus: conference_papers.size %}
+
+{% if journal_papers.size > 0 %}
+  <h2>Journal Articles</h2>
+
+  {% for post in journal_papers %}
+    {% include publication-compact.html number=publication_number %}
+    {% assign publication_number = publication_number | minus: 1 %}
+  {% endfor %}
+{% endif %}
 
 {% if conference_papers.size > 0 %}
   <h2>Conference Papers</h2>
 
   {% for post in conference_papers %}
-    {% include publication-compact.html %}
+    {% include publication-compact.html number=publication_number %}
+    {% assign publication_number = publication_number | minus: 1 %}
   {% endfor %}
 {% endif %}
+
