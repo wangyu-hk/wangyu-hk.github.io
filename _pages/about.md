@@ -1,9 +1,9 @@
-lang: en
-alt_url: /zh/
 ---
 permalink: /
 title: "About Me"
 author_profile: true
+lang: en
+alt_url: /zh/
 redirect_from: 
   - /about/
   - /about.html
