@@ -1,0 +1,22 @@
+---
+layout: archive
+title: "学术成果"
+permalink: /zh/publications/
+author_profile: true
+lang: zh
+alt_url: /publications/
+---
+
+<p>
+  我的学术论文也可以在
+  <a href="{{ site.author.googlescholar }}"
+     target="_blank"
+     rel="noopener noreferrer">Google Scholar</a>
+  上查看。
+</p>
+
+{% include base_path %}
+
+{% for post in site.publications reversed %}
+  {% include archive-single.html %}
+{% endfor %}
