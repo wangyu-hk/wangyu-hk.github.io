@@ -30,13 +30,15 @@
           <li class="masthead__menu-item persist">
             {% if page.lang == "zh" %}
               <a href="{{ page.alt_url | default: '/' | relative_url }}"
-                 aria-label="Switch to English">
-                EN
+                 aria-label="Switch to English"
+                 title="Switch to English">
+                Switch to English
               </a>
             {% else %}
               <a href="{{ page.alt_url | default: '/zh/' | relative_url }}"
-                 aria-label="切换到中文">
-                中
+                 aria-label="切换为中文"
+                 title="切换为中文">
+                切换为中文
               </a>
             {% endif %}
           </li>
