@@ -4,8 +4,13 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == '/' or page.url == '/index.html' %}selected{% endif %}">
-            <a href="{{ base_path }}/">{{ site.title }}</a>
+          <li class="masthead__menu-item masthead__menu-item--lg persist
+          {% if page.url == '/' or page.url == '/zh/' %}selected{% endif %}">
+            {% if page.lang == "zh" %}
+              <a href="{{ '/zh/' | relative_url }}">汪煜</a>
+            {% else %}
+              <a href="{{ '/' | relative_url }}">Wang Yu</a>
+            {% endif %}
           </li>
             {% assign nav_links = site.data.navigation.main %}
             {% if page.lang == "zh" %}
