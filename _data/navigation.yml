@@ -23,3 +23,14 @@ main:
   - title: "CV"
     url: /cv/
     
+zh:
+  - title: "学术成果"
+    url: /zh/publications/
+  - title: "教学经历"
+    url: /zh/teaching/
+  - title: "社会服务"
+    url: /zh/portfolio/
+  - title: "博客"
+    url: /zh/year-archive/
+  - title: "个人简历"
+    url: /zh/cv/
