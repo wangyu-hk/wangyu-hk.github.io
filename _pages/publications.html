@@ -7,32 +7,30 @@ lang: en
 alt_url: /zh/publications/
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<p>
+  For a complete list of publications, please visit my
+  <a href="{{ site.author.googlescholar }}"
+     target="_blank" rel="noopener noreferrer">
+    Google Scholar profile
+  </a>.
+</p>
 
-{% include base_path %}
+{% assign sorted_papers = site.publications | sort: "date" | reverse %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+<h2>Journal Articles</h2>
+
+{% for post in sorted_papers %}
+  {% if post.category == "manuscripts" %}
+    {% include publication-compact.html %}
+  {% endif %}
+{% endfor %}
+
+{% assign conference_papers = sorted_papers | where: "category", "conferences" %}
+
+{% if conference_papers.size > 0 %}
+  <h2>Conference Papers</h2>
+
+  {% for post in conference_papers %}
+    {% include publication-compact.html %}
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
 {% endif %}
-
-
-
