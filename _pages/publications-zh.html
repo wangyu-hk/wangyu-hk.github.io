@@ -8,15 +8,29 @@ alt_url: /publications/
 ---
 
 <p>
-  我的学术论文也可以在
+  完整论文列表请参阅我的
   <a href="{{ site.author.googlescholar }}"
-     target="_blank"
-     rel="noopener noreferrer">Google Scholar</a>
-  上查看。
+     target="_blank" rel="noopener noreferrer">
+    Google Scholar
+  </a>。
 </p>
 
-{% include base_path %}
+{% assign sorted_papers = site.publications | sort: "date" | reverse %}
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
+<h2>期刊论文</h2>
+
+{% for post in sorted_papers %}
+  {% if post.category == "manuscripts" %}
+    {% include publication-compact.html %}
+  {% endif %}
 {% endfor %}
+
+{% assign conference_papers = sorted_papers | where: "category", "conferences" %}
+
+{% if conference_papers.size > 0 %}
+  <h2>会议论文</h2>
+
+  {% for post in conference_papers %}
+    {% include publication-compact.html %}
+  {% endfor %}
+{% endif %}
